@@ -97,6 +97,7 @@ public class DroppyMenuPopup {
         modalWindow = new FrameLayout(mContext);
         modalWindow.setClickable(true);
         modalWindow.setLayoutParams(lp);
+        modalWindow.setTag("DROPPY_POPUP_MODAL");
         modalWindow.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -116,6 +117,7 @@ public class DroppyMenuPopup {
         detachPopupView();
         ((ViewGroup) mContentView).addView(mPopupView);
         mContentView.setFocusable(true);
+        mContentView.setTag("DROPPY_POPUP_HOLDER");
         mContentView.setClickable(true);
         getActivity(mContext).getWindow().addContentView(mContentView, lp);
         mContentView.requestFocus();
@@ -148,10 +150,10 @@ public class DroppyMenuPopup {
     }
 
     protected void dismissPopup(boolean itemSelected) {
-        if (mContentView != null && modalWindow != null) {
+        if (mContentView != null && mContentView.getParent() != null && modalWindow != null && modalWindow.getParent() != null) {
             ((ViewGroup) mContentView.getParent()).removeView(mContentView);
             ((ViewGroup) modalWindow.getParent()).removeView(modalWindow);
-
+            
             if (!itemSelected && this.mOnDismissCallback != null) {
                 mOnDismissCallback.call();
                 this.mOnDismissCallback = null;
