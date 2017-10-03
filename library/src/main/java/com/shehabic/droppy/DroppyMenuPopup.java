@@ -153,7 +153,6 @@ public class DroppyMenuPopup {
         if (mContentView != null && mContentView.getParent() != null && modalWindow != null && modalWindow.getParent() != null) {
             ((ViewGroup) mContentView.getParent()).removeView(mContentView);
             ((ViewGroup) modalWindow.getParent()).removeView(modalWindow);
-            
             if (!itemSelected && this.mOnDismissCallback != null) {
                 mOnDismissCallback.call();
                 this.mOnDismissCallback = null;
