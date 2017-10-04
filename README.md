@@ -5,25 +5,18 @@ Droppy
 
 A simple yet-customizable Android drop-down menu. It supports Text with/without Icons, Separators, and even fully customized views.
 
-Version
-=======
-v.0.6.0
-
-Usage (Maven)
-=============
-```XML
-<dependency>
-    <groupId>com.shehabic.droppy</groupId>
-    <artifactId>Droppy</artifactId>
-    <version>0.6.0</version>
-</dependency>
-```
-
 Usage (Gradle)
 ==============
 ```groovy
-compile 'com.shehabic.droppy:Droppy:0.6.0@aar'
+compile 'io.stepuplabs.droppy:droppy:0.6.1.0'
 ```
+
+Step Up Labs fork
+=================
+- Fixes [this NPE](https://github.com/shehabic/Droppy/pull/55)
+- Adds methods `Droppy.dismissAllPopups()` for convenience 
+
+When releasing new version run `gradlew clean build publishToMavenLocal` and then publish to Jcenter from .m2
 
 Generate Programmatically
 =========================
