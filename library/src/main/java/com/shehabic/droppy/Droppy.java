@@ -12,14 +12,14 @@ import android.view.Window;
  * @author Josef Hruška (josef@stepuplabs.io)
  */
 
-public final class DroppyMenuManager {
+public final class Droppy {
 
     /**
      * It may be necessary to dismiss view before ,the fragment/activity which created popup, is stopped.
      *
      * @param activity - activity which created popup
      */
-    public static void dismissPopup(Activity activity) {
+    public static void dismissAllPopups(Activity activity) {
         dismiss(activity.getWindow());
     }
 
@@ -28,8 +28,8 @@ public final class DroppyMenuManager {
      *
      * @param fragment - fragment which created popup
      */
-    public static void dismissPopup(Fragment fragment) {
-        dismissPopup(fragment.getActivity());
+    public static void dismissAllPopups(Fragment fragment) {
+        dismissAllPopups(fragment.getActivity());
     }
 
     /**
